@@ -1,0 +1,142 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex bb36f37..0000000[m
+[1m--- a/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-# abc[m
+\ No newline at end of file[m
+[1mdiff --git a/about.html b/about.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6f0dacf[m
+[1m--- /dev/null[m
+[1m+++ b/about.html[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <title>Welcome to custom server</title>[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m        body{[m
+[32m+[m[32m            background-color: #1a1a1a;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        h1{[m
+[32m+[m[32m            /* color: azure; */[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m        }[m
+[32m+[m[32m    </style>[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <h1>Welcome to about page Learner's point</h1>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/contact.html b/contact.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ffd4082[m
+[1m--- /dev/null[m
+[1m+++ b/contact.html[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <title>Welcome to custom server</title>[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m        body{[m
+[32m+[m[32m            background-color: #1a1a1a;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        h1{[m
+[32m+[m[32m            /* color: azure; */[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m        }[m
+[32m+[m[32m    </style>[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <h1>Welcome to Contact page of Learner's point</h1>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..41fd16b[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <title>Welcome to custom server</title>[m
+[32m+[m[32m    <style>[m
+[32m+[m[32m        body{[m
+[32m+[m[32m            background-color: #1a1a1a;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        h1{[m
+[32m+[m[32m            /* color: azure; */[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m        }[m
+[32m+[m[32m    </style>[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <h1>Welcome to Leaner's Point</h1>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/server.js b/server.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ac876e8[m
+[1m--- /dev/null[m
+[1m+++ b/server.js[m
+[36m@@ -0,0 +1,40 @@[m
+[32m+[m[32mconst http =  require('http');[m
+[32m+[m[32mconst fs = require('fs')[m
+[32m+[m[32mconst path = require('path')[m
+[32m+[m
+[32m+[m
+[32m+[m[32mconst port = 200[m
+[32m+[m
+[32m+[m[32mconst server = http.createServer((req, res) => {[m
+[32m+[m[32m    const filePath = path.join(__dirname, req.url === '/' ? "index.html" : req.url);[m
+[32m+[m[32m    console.log(filePath);[m
+[32m+[m[41m    [m
+[32m+[m[32m    const extName = String(path.extname(filePath)).toLowerCase()[m
+[32m+[m
+[32m+[m[32m    const mimeTypes = {[m
+[32m+[m[32m        '.html': 'text/html',[m
+[32m+[m[32m        '.css': 'text/css',[m
+[32m+[m[32m        '.js': 'text/javascript',[m
+[32m+[m[32m        '.png': 'text/png',[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m    const contentType = mimeTypes[extName] || 'application/octet-stream';[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    fs.readFile(filePath, (err, content) => {[m
+[32m+[m[32m        if (err) {[m
+[32m+[m[32m            if(err.code === "ENDENT"){[m
+[32m+[m[32m                res.writeHead(404, {"Content-type": 'text/html'})[m
+[32m+[m[32m                res.end('404: File Not Found Brooo000000')[m
+[32m+[m[32m            }[m
+[32m+[m[32m        } else{[m
+[32m+[m[32m            res.writeHead(200, {"Content-type": contentType})[m
+[32m+[m[32m            res.end(content, 'utf-8');[m
+[32m+[m[32m        }[m
+[32m+[m[32m    });[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mserver.listen(port, () => {[m
+[32m+[m[32m    console.log(`Server is listening at port ${port}`);[m
+[32m+[m[41m    [m
+[32m+[m[32m});[m
+\ No newline at end of file[m
